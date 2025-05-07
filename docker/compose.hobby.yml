@@ -13,6 +13,9 @@ services:
             - ../backend/localhostssl/server.key:/build/localhostssl/server.key
             - ../backend/localhostssl/server.crt:/build/localhostssl/server.crt
         env_file: .env
+        environment:
+            - REACT_APP_PRIVATE_GRAPH_URI=${REACT_APP_PRIVATE_GRAPH_URI}
+            - REACT_APP_PUBLIC_GRAPH_URI=${REACT_APP_PUBLIC_GRAPH_URI}
 
     frontend:
         container_name: frontend
@@ -26,6 +29,9 @@ services:
             - '0.0.0.0:6006:6006'
             - '0.0.0.0:8080:8080'
         env_file: .env
+        environment:
+            - REACT_APP_FRONTEND_URI=${REACT_APP_FRONTEND_URI}
+            - ADMIN_PASSWORD=${ADMIN_PASSWORD}
 
 volumes:
     highlight-data:
