@@ -14,6 +14,8 @@ services:
             - ../backend/localhostssl/server.crt:/build/localhostssl/server.crt
         env_file: .env
         environment:
+            - REACT_APP_FRONTEND_URI=${REACT_APP_FRONTEND_URI}
+            - ADMIN_PASSWORD=${ADMIN_PASSWORD}
             - REACT_APP_PRIVATE_GRAPH_URI=${REACT_APP_PRIVATE_GRAPH_URI}
             - REACT_APP_PUBLIC_GRAPH_URI=${REACT_APP_PUBLIC_GRAPH_URI}
 
@@ -32,6 +34,8 @@ services:
         environment:
             - REACT_APP_FRONTEND_URI=${REACT_APP_FRONTEND_URI}
             - ADMIN_PASSWORD=${ADMIN_PASSWORD}
+            - REACT_APP_PRIVATE_GRAPH_URI=${REACT_APP_PRIVATE_GRAPH_URI}
+            - REACT_APP_PUBLIC_GRAPH_URI=${REACT_APP_PUBLIC_GRAPH_URI}
 
 volumes:
     highlight-data:
